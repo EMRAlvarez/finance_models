@@ -9,7 +9,7 @@ document.write('\
     <div class="collapse navbar-collapse" id="navbarResponsive">\
       <ul class="navbar-nav ml-auto">\
         <li class="nav-item">\
-          <a class="nav-link" href="http://jamescalam.github.io/finance_models/cashflow_eir/readme.html">Cashflow\
+          <a class="nav-link" href="../readme.html">Cashflow\
           </a>\
         </li>\
         <li class="nav-item">\
