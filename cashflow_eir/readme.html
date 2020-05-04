@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Cashflow Model Docs</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="docs\templates\bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <script src="docs\templates\navbar.js"></script>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <br><br>
+        <p class="lead">
+          The cashflow_eir model provides a reliable way to calculate the cashflow,
+          effective interest rates (EIR), net present values (NPV), and profit and loss (P&L) of a large number loans quickly. The model is a set of lightweight python scripts that can be run from any command prompt, terminal or application capable of executing python scripts.
+        </p>
+
+        <h3 class="mt-5">Documentation</h3>
+        <p>
+          The <b>Cashflow</b> docs are split into three parts, each corresponding to their respective scripts.
+        </p>
+        <br>
+        <div class="row">
+          <div class="col-4">
+            <div class="list-group" id="list-mod" role="tablist">
+              <a class="list-group-item list-group-item-action" id="label1" data-toggle="list" href="#card1" role="tab" aria-controls="home">model</a>
+              <a class="list-group-item list-group-item-action" id="label2" data-toggle="list" href="#card2" role="tab" aria-controls="profile">formulae</a>
+              <a class="list-group-item list-group-item-action" id="label3" data-toggle="list" href="#card3" role="tab" aria-controls="profile">data</a>
+            </div>
+          </div>
+          <div class="col-8">
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade" id="card1" role="tabpanel" aria-labelledby="label1">
+                <p>
+                  The <b>model</b> script covers key computational functions
+                  for the Cashflow, EIR, NPV and P&L modelling. The majority
+									of this script consists of the Cashflow class, which contains the 
+									the model itself in addition to other key methods required for outputting and visualising data.
+                  <br><br>
+                  <a href="docs/model.html">Click here for documentation</a>
+                </p>
+              </div>
+              <div class="tab-pane fade" id="card2" role="tabpanel" aria-labelledby="label2">
+                <p>
+                  The <b>formulae</b> script contains several useful formulae used during modelling.
+                  <br><br>
+                  <a href="docs/templates/formulae.html">Click here for documentation</a>
+                </p>
+              </div>
+              <div class="tab-pane fade" id="card3" role="tabpanel" aria-labelledby="label3">
+                <p>
+                  The <b>data</b> module contains several useful functions used
+                  during data import/export and manipulation.
+                  <br><br>
+                  <a href="docs/data.html">Click here for documentation</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+			</div>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="docs\templates\jquery.min.js"></script>
+  <script src="docs\templates\bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

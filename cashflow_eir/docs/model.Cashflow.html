@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Cashflow docs">
+<meta name="author" content="James Briggs">
+
+<title>Cashflow docs</title>
+
+<link href="templates/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<script src="templates/navbar.js"></script>
+
+<!-- Page Content -->
+<div class="container">
+<div class="row">
+  <div class="col-lg-12 text-left">
+
+    <h1 class="mt-5">Cashflow</h1>
+    <p class="lead">
+       Class used to control cashflow calculation. This contains calculations in addition to visualisation 'plot' and result extraction 'output' methods. Before this is run the Loanbook, CPR Curves, and ERC Lookup tables must have all been formatted into the correct formats using the data script. 
+    </p>
+
+    <br>
+
+    <!-- Breadcrumb Navigation -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active"><a href="../readme.html">Docs</a></li>
+    
+        <li class="breadcrumb-item active"><a href="model.html">Model</a></li>
+            
+        <li class="breadcrumb-item" aria-current="page">Cashflow</li>
+            
+      </ol>
+    </nav>
+
+    <br>
+
+    
+        <h2>Functions</h2>
+        <br>
+        <ul>
+    
+        <li class="list-group-item" id="func___init__">
+          <h4>__init__</h4>
+          <kbd>__init__(loanbook, erc_lookup, period_start, period_end)</kbd><br><br>
+          <p>
+            Initialises key parameters and arrays for cashflow calculation
+          </p>
+        
+          <!-- Parameters table for __init__ -->
+          <table class="table table-hover">
+            <tbody>
+            
+              <tr>
+                <th scope="row">loanbook</th>
+                <td>
+                  Formatted loanbook data.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">erc_lookup</th>
+                <td>
+                  Formatted ERC Lookup data.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">period_start</th>
+                <td>
+                  Datetime object giving the month and year of the period start used in NPV calculations.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">period_end</th>
+                <td>
+                  Datetime object giving the month and year of the period end used in NPV calculations.
+                </td>
+              </tr>
+                
+            </tbody>
+          </table>
+            
+        </li>
+        <br>
+        
+        <li class="list-group-item" id="func_calculate_cashflow">
+          <h4>calculate_cashflow</h4>
+          <kbd>calculate_cashflow(cpr)</kbd><br><br>
+          <p>
+            Method used to run the calculations. This will iteratively calculate scheduled/early repayments, statement amount and interest, cumulative amortisation and payment, early repayment charges, cashflow, and profit and loss; month-by-month.
+          </p>
+        
+          <!-- Parameters table for calculate_cashflow -->
+          <table class="table table-hover">
+            <tbody>
+            
+              <tr>
+                <th scope="row">cpr</th>
+                <td>
+                  Formatted CPR Curves data.
+                </td>
+              </tr>
+                
+            </tbody>
+          </table>
+            
+        </li>
+        <br>
+        
+        <li class="list-group-item" id="func_calculate_vals">
+          <h4>calculate_vals</h4>
+          <kbd>calculate_vals(period_start, peiod_end)</kbd><br><br>
+          <p>
+            Used for calculating effective interest rate, net present value, and profit and loss for cashflows calculated with the cashflow method.
+          </p>
+        
+          <!-- Parameters table for calculate_vals -->
+          <table class="table table-hover">
+            <tbody>
+            
+              <tr>
+                <th scope="row">period_start</th>
+                <td>
+                  Start date for NPV and P&L calculations.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">peiod_end</th>
+                <td>
+                  End date for P&L calculation.
+                </td>
+              </tr>
+                
+            </tbody>
+          </table>
+            
+        </li>
+        <br>
+        
+        <li class="list-group-item" id="func_plot">
+          <h4>plot</h4>
+          <kbd>plot(products, out, save, path, limit)</kbd><br><br>
+          <p>
+            Method for plotting key parameters onto a Matplotlib subplots object. These key parameters are the arrays used during the cashflow calculation. A maximum of five plots will be displayed before the method ends, unless the 'save' parameter is True, in which case product visualisations will be saved to file as JPEGs. Note that saving to file can take a long time for large numbers of files, a limit of products to be visualised is set by the 'limit' parameter.
+          </p>
+        
+          <!-- Parameters table for plot -->
+          <table class="table table-hover">
+            <tbody>
+            
+              <tr>
+                <th scope="row"><em>products*</em></th>
+                <td>
+                  List of product names identifying which products are to be visualised. The default is 'all'.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row"><em>out*</em></th>
+                <td>
+                  List of parameter names identifying which parameters are to be visualised. The default is 'all'.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row"><em>save*</em></th>
+                <td>
+                  True/False value defining whether to save the plots (True) to the path given by 'path', or to simply display them (False). The default is False.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row"><em>path*</em></th>
+                <td>
+                  If the 'save' parameter is True then visualisations will be saved to the path defined here. The default is './Outputs/Cashflow/Visualisation'.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row"><em>limit*</em></th>
+                <td>
+                  If the 'save' parameter is True then the number of visualisations to be saved to file will be limited by this parameter. The default is 30.
+                </td>
+              </tr>
+                
+            </tbody>
+          </table>
+            
+        </li>
+        <br>
+        
+        <li class="list-group-item" id="func_output">
+          <h4>output</h4>
+          <kbd>output(path, preappend, vis, out, loanbook)</kbd><br><br>
+          <p>
+            Method to output cashflow, calculated arrays, and loanbook with calculated EIR, NPV and P&L columns to CSV. Can also output array lineplots with 'vis' parameter.
+          </p>
+        
+          <!-- Parameters table for output -->
+          <table class="table table-hover">
+            <tbody>
+            
+              <tr>
+                <th scope="row"><em>path*</em></th>
+                <td>
+                  The file path where the output files should be saved. The default is "./Outputs/Cashflow".
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row"><em>preappend*</em></th>
+                <td>
+                  Text to preappend to the filenames being saved. The default is "".
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row"><em>vis*</em></th>
+                <td>
+                  True/False value defining whether to save calculated array visualisations to file or not. The default is False.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row"><em>out*</em></th>
+                <td>
+                  
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row"><em>loanbook*</em></th>
+                <td>
+                  True/False indicating whether to output input loanbook data with additional columnsfor calculated EIR, NPV, entity NPV, and P&L. The Default is False.
+                </td>
+              </tr>
+                
+            </tbody>
+          </table>
+            
+        </li>
+        <br>
+        
+        </ul>
+    
+  </div>
+</div>
+</div>
+<br>
+
+<!-- Bootstrap core JavaScript -->
+<script src="templates/jquery.min.js"></script>
+<script src="templates/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
+    

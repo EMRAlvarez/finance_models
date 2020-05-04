@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Mappings docs">
+<meta name="author" content="James Briggs">
+
+<title>Mappings docs</title>
+
+<link href="templates/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<script src="templates/navbar.js"></script>
+
+<!-- Page Content -->
+<div class="container">
+<div class="row">
+  <div class="col-lg-12 text-left">
+
+    <h1 class="mt-5">Mappings</h1>
+    <p class="lead">
+      
+    </p>
+
+    <br>
+
+    <!-- Breadcrumb Navigation -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active"><a href="../readme.html">Docs</a></li>
+    
+        <li class="breadcrumb-item active"><a href="data.html">Data</a></li>
+            
+        <li class="breadcrumb-item" aria-current="page">Mappings</li>
+            
+      </ol>
+    </nav>
+
+    <br>
+
+    
+        <h2>Functions</h2>
+        <br>
+        <ul>
+    
+        <li class="list-group-item" id="func___init__">
+          <h4>__init__</h4>
+          <kbd>__init__()</kbd><br><br>
+          <p>
+            Initialises an empty mappings dictionary containing all columns that require mapping for Cashflow/EIR modelling.
+          </p>
+        
+        </li>
+        <br>
+        
+        <li class="list-group-item" id="func_update">
+          <h4>update</h4>
+          <kbd>update(internal, external, allowable)</kbd><br><br>
+          <p>
+            Used to update a mapping.
+          </p>
+        
+          <!-- Parameters table for update -->
+          <table class="table table-hover">
+            <tbody>
+            
+              <tr>
+                <th scope="row">internal</th>
+                <td>
+                  Internal name of the column (the mapping dictionary key).
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">external</th>
+                <td>
+                  External name of the column (the mapping dictionary value).
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">allowable</th>
+                <td>
+                  List of allowable column labels. If usins a Pandas dataframe, allowable values are easily extracted using 'df.columns'. This is used for confirming the given external label maps to something.
+                </td>
+              </tr>
+                
+            </tbody>
+          </table>
+            
+        </li>
+        <br>
+        
+        <li class="list-group-item" id="func_new">
+          <h4>new</h4>
+          <kbd>new(df)</kbd><br><br>
+          <p>
+            Allows user to enter new column label mappings via a command line interface.
+          </p>
+        
+          <!-- Parameters table for new -->
+          <table class="table table-hover">
+            <tbody>
+            
+              <tr>
+                <th scope="row">df</th>
+                <td>
+                  dataframe containing external data with original column labels. This is used to check that user entered columns match to external column labels.
+                </td>
+              </tr>
+                
+            </tbody>
+          </table>
+            
+        </li>
+        <br>
+        
+        <li class="list-group-item" id="func_save">
+          <h4>save</h4>
+          <kbd>save(file, path)</kbd><br><br>
+          <p>
+            Saves the mapping dictionary to file as a JSON.
+          </p>
+        
+          <!-- Parameters table for save -->
+          <table class="table table-hover">
+            <tbody>
+            
+              <tr>
+                <th scope="row"><em>file*</em></th>
+                <td>
+                  Filename for the mapping dictionary json.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row"><em>path*</em></th>
+                <td>
+                  Local/global path to the directory that the json will be saved to. The default is 'settings'.
+                </td>
+              </tr>
+                
+            </tbody>
+          </table>
+            
+        </li>
+        <br>
+        
+        <li class="list-group-item" id="func_load">
+          <h4>load</h4>
+          <kbd>load(file, path)</kbd><br><br>
+          <p>
+            Loads the mapping dictionary JSON to the object's internal self.data variable.
+          </p>
+        
+          <!-- Parameters table for load -->
+          <table class="table table-hover">
+            <tbody>
+            
+              <tr>
+                <th scope="row"><em>file*</em></th>
+                <td>
+                  Filename of the mapping dictionary json.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row"><em>path*</em></th>
+                <td>
+                  Local/global path to the directory that the json will be loaded from. The default is 'settings'.
+                </td>
+              </tr>
+                
+            </tbody>
+          </table>
+            
+        </li>
+        <br>
+        
+        <li class="list-group-item" id="func_output">
+          <h4>output</h4>
+          <kbd>output(path, preappend)</kbd><br><br>
+          <p>
+            Function used to save csv's.
+          </p>
+        
+          <!-- Parameters table for output -->
+          <table class="table table-hover">
+            <tbody>
+            
+              <tr>
+                <th scope="row"><em>path*</em></th>
+                <td>
+                  DESCRIPTION. The default is "./outputs".
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row"><em>preappend*</em></th>
+                <td>
+                  DESCRIPTION. The default is "".
+                </td>
+              </tr>
+                
+            </tbody>
+          </table>
+            
+        </li>
+        <br>
+        
+        <li class="list-group-item" id="func_format_loanbook">
+          <h4>format_loanbook</h4>
+          <kbd>format_loanbook(loanbook, mapping, conv_full_term, verbose)</kbd><br><br>
+          <p>
+            Formats loanbook data into the correct format for EIR processing.
+          </p>
+        
+          <!-- Parameters table for format_loanbook -->
+          <table class="table table-hover">
+            <tbody>
+            
+              <tr>
+                <th scope="row">loanbook</th>
+                <td>
+                  dataframe containing raw loanbook data.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">mapping</th>
+                <td>
+                  
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row"><em>conv_full_term*</em></th>
+                <td>
+                  True/False value defining whether to assume non-numeric values in the 'rate_term' column indicate full-term and therefore default to 'term' column value.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row"><em>verbose*</em></th>
+                <td>
+                  True/False indicating whether to print warnings to the console.
+                </td>
+              </tr>
+                
+            </tbody>
+          </table>
+            
+        </li>
+        <br>
+        
+        <li class="list-group-item" id="func_calc_loanbook">
+          <h4>calc_loanbook</h4>
+          <kbd>calc_loanbook(loanbook, verbose)</kbd><br><br>
+          <p>
+            Formats loanbook data into the correct format for EIR processing.
+          </p>
+        
+          <!-- Parameters table for calc_loanbook -->
+          <table class="table table-hover">
+            <tbody>
+            
+              <tr>
+                <th scope="row">loanbook</th>
+                <td>
+                  dataframe containing raw loanbook data.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row"><em>verbose*</em></th>
+                <td>
+                  True/False indicating whether to print warnings to the console.
+                </td>
+              </tr>
+                
+            </tbody>
+          </table>
+            
+        </li>
+        <br>
+        
+        <li class="list-group-item" id="func_format_array">
+          <h4>format_array</h4>
+          <kbd>format_array(array, mapping)</kbd><br><br>
+          <p>
+            Formats a mostly numeric dataframe into the correct format for calculations. Typically, the only non-numeric column should be the product column.
+          </p>
+        
+          <!-- Parameters table for format_array -->
+          <table class="table table-hover">
+            <tbody>
+            
+              <tr>
+                <th scope="row">array</th>
+                <td>
+                  dataframe containing mostly numeric data.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">mapping</th>
+                <td>
+                  
+                </td>
+              </tr>
+                
+            </tbody>
+          </table>
+            
+        </li>
+        <br>
+        
+        <li class="list-group-item" id="func_search_col">
+          <h4>search_col</h4>
+          <kbd>search_col(sheet, start, value, limit)</kbd><br><br>
+          <p>
+            Searches a column in an openpyxl sheet for a specific value. This is to stop the script from breaking if users add/remove rows when entering variables etc.
+          </p>
+        
+          <!-- Parameters table for search_col -->
+          <table class="table table-hover">
+            <tbody>
+            
+              <tr>
+                <th scope="row">sheet</th>
+                <td>
+                  an openpyxl sheet to be searched
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">start</th>
+                <td>
+                  the cell to begin searching from, eg 'C5'
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">value</th>
+                <td>
+                  what value to find
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">limit</th>
+                <td>
+                  after iterating through this many rows, give up
+                </td>
+              </tr>
+                
+            </tbody>
+          </table>
+            
+        </li>
+        <br>
+        
+        <li class="list-group-item" id="func_adjust">
+          <h4>adjust</h4>
+          <kbd>adjust(loanbook)</kbd><br><br>
+          <p>
+            Reads loanbook dataframe and extracts adjustment columns. These are identified by splitting on 'adjust'.
+          </p>
+        
+          <!-- Parameters table for adjust -->
+          <table class="table table-hover">
+            <tbody>
+            
+              <tr>
+                <th scope="row">loanbook</th>
+                <td>
+                  dataframe containing loanbook data.
+                </td>
+              </tr>
+                
+            </tbody>
+          </table>
+            
+        </li>
+        <br>
+        
+        </ul>
+    
+  </div>
+</div>
+</div>
+<br>
+
+<!-- Bootstrap core JavaScript -->
+<script src="templates/jquery.min.js"></script>
+<script src="templates/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
+    

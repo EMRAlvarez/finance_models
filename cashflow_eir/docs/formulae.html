@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Formulae docs">
+<meta name="author" content="James Briggs">
+
+<title>Formulae docs</title>
+
+<link href="templates/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<script src="templates/navbar.js"></script>
+
+<!-- Page Content -->
+<div class="container">
+<div class="row">
+  <div class="col-lg-12 text-left">
+
+    <h1 class="mt-5">Formulae</h1>
+    <p class="lead">
+      Script containing more complex calculations for Cashflow modelling.
+    </p>
+
+    <br>
+
+    <!-- Breadcrumb Navigation -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active"><a href="../readme.html">Docs</a></li>
+    
+        <li class="breadcrumb-item" aria-current="page">Formulae</li>
+            
+      </ol>
+    </nav>
+
+    <br>
+
+    
+        <h2>Functions</h2>
+        <br>
+        <ul>
+    
+        <li class="list-group-item" id="func_princcum">
+          <h4>princcum</h4>
+          <kbd>princcum(rate, nper, loan_amount, m, when)</kbd><br><br>
+          <p>
+            Calculates the cumulative principal repaid between the first month and the m-th month of a loan.
+          </p>
+        
+          <!-- Parameters table for princcum -->
+          <table class="table table-hover">
+            <tbody>
+            
+              <tr>
+                <th scope="row">rate</th>
+                <td>
+                  Interest rate.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">nper</th>
+                <td>
+                  Number of periods in loan term.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">loan_amount</th>
+                <td>
+                  Loan principal.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">m</th>
+                <td>
+                  Loan month up to which we should calculate.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">when</th>
+                <td>
+                  Integer flag, repayment at the beginning (1), end of the month (0).
+                </td>
+              </tr>
+                
+            </tbody>
+          </table>
+            
+        </li>
+        <br>
+        
+        <li class="list-group-item" id="func_func_scheduled_payment">
+          <h4>func_scheduled_payment</h4>
+          <kbd>func_scheduled_payment(m, loan_amount, reversion, cpy_prev, ostmt, epmt_prev, spmt_prev, monthly_repay_io, monthly_repay, monthly_repay_reversion, monthly_repay_io_reversion)</kbd><br><br>
+          <p>
+            Calculation of scheduled payment. Incompatible with arrays, vectorised implementation provided by 'v_scheduled_payment'.
+          </p>
+        
+          <!-- Parameters table for func_scheduled_payment -->
+          <table class="table table-hover">
+            <tbody>
+            
+              <tr>
+                <th scope="row">m</th>
+                <td>
+                  Current month index.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">loan_amount</th>
+                <td>
+                  The initial loan amount.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">reversion</th>
+                <td>
+                  Reversion month index.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">cpy_prev</th>
+                <td>
+                  Cumulative prepayment from the previous month.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">ostmt</th>
+                <td>
+                  Statement amount from the previous month.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">epmt_prev</th>
+                <td>
+                  Early prepayment from the previous month.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">spmt_prev</th>
+                <td>
+                  Scheduled payment from the previous month.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">monthly_repay_io</th>
+                <td>
+                  Monthly repay amount (interest only).
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">monthly_repay</th>
+                <td>
+                  Monthly repay amount.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">monthly_repay_reversion</th>
+                <td>
+                  Monthly repay amount after the reversion date.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">monthly_repay_io_reversion</th>
+                <td>
+                  Monthly repay amount (interest only) after the reversion date.
+                </td>
+              </tr>
+                
+            </tbody>
+          </table>
+            
+        </li>
+        <br>
+        
+        <li class="list-group-item" id="func_cum_prepayment">
+          <h4>cum_prepayment</h4>
+          <kbd>cum_prepayment(cpy_prev, amount, cam, cpr, cpr_prev)</kbd><br><br>
+          <p>
+            Calculation of cumulative prepayment.
+          </p>
+        
+          <!-- Parameters table for cum_prepayment -->
+          <table class="table table-hover">
+            <tbody>
+            
+              <tr>
+                <th scope="row">cpy_prev</th>
+                <td>
+                  Cumulative prepayment from the previous month.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">amount</th>
+                <td>
+                  The initial loan amount.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">cam</th>
+                <td>
+                  Cumulative amortisation for the current month.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">cpr</th>
+                <td>
+                  Conditional prepayment rate (CPR) for the current month.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">cpr_prev</th>
+                <td>
+                  Conditional prepayment rate (CPR) from the previous month.
+                </td>
+              </tr>
+                
+            </tbody>
+          </table>
+            
+        </li>
+        <br>
+        
+        <li class="list-group-item" id="func_func_early_repayment">
+          <h4>func_early_repayment</h4>
+          <kbd>func_early_repayment(ostmt, sint, spmt, cpy_prev, cpy)</kbd><br><br>
+          <p>
+            Calculation of early repayment.
+          </p>
+        
+          <!-- Parameters table for func_early_repayment -->
+          <table class="table table-hover">
+            <tbody>
+            
+              <tr>
+                <th scope="row">ostmt</th>
+                <td>
+                  Statement amount from the previous month.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">sint</th>
+                <td>
+                  Statement interest for the current month.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">spmt</th>
+                <td>
+                  Scheduled payment for the current month.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">cpy_prev</th>
+                <td>
+                  Cumulative payment from the previous month.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">cpy</th>
+                <td>
+                  Cumulative payment for the current month.
+                </td>
+              </tr>
+                
+            </tbody>
+          </table>
+            
+        </li>
+        <br>
+        
+        <li class="list-group-item" id="func_cashflow_calc">
+          <h4>cashflow_calc</h4>
+          <kbd>cashflow_calc(prev_amt, prev_costs, prev_fees, prev_spmt, prev_epmt, erc, adjustments)</kbd><br><br>
+          <p>
+            Calculation of the current cashflow.
+          </p>
+        
+          <!-- Parameters table for cashflow_calc -->
+          <table class="table table-hover">
+            <tbody>
+            
+              <tr>
+                <th scope="row">prev_amt</th>
+                <td>
+                  Loan amount from previous month, this should only affect month 1.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">prev_costs</th>
+                <td>
+                  Costs from previous month (upfront costs will only affect month 1).
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">prev_fees</th>
+                <td>
+                  Fees from previous month (upfront fees will only affect month 1).
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">prev_spmt</th>
+                <td>
+                  Scheduled payment from previous month.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">prev_epmt</th>
+                <td>
+                  Early repayment from previous month.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">erc</th>
+                <td>
+                  Early repayment charge from previous month.
+                </td>
+              </tr>
+                
+              <tr>
+                <th scope="row">adjustments</th>
+                <td>
+                  All adjustments during this month.
+                </td>
+              </tr>
+                
+            </tbody>
+          </table>
+            
+        </li>
+        <br>
+        
+        </ul>
+    
+  </div>
+</div>
+</div>
+<br>
+
+<!-- Bootstrap core JavaScript -->
+<script src="templates/jquery.min.js"></script>
+<script src="templates/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
+    
